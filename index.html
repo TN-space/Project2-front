@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <!-- <link href="https://fonts.googleapis.com/css?family=Inter|Noticia+Text|Permanent+Marker&display=swap" rel="stylesheet"> -->
+
+      <title>Crowded?</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="https://kit.fontawesome.com/68e156b8e9.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+      <h1>Welcome!</h1>
+      <p id="signUpInOut"></p>
+
+    <nav>
+    <form class="float-left viewStart" id="sign-up">
+      <fieldset>
+      <!-- <legend>Sign up:</legend> -->
+<input name ="credentials[email]" type="text" placeholder="Email">
+<input name ="credentials[password]" type="password" placeholder="Password">
+<input name ="credentials[password_confirmation]" type="password" placeholder="Confirm password">
+<input type="submit" value="Sign up">
+      </fieldset>
+    </form>
+
+    <form class="float-left viewStart" id="sign-in">
+      <fieldset>
+      <!-- <legend>Sign in:</legend> -->
+<input name ="credentials[email]" type="text" placeholder="Email">
+<input name ="credentials[password]" type="password" placeholder="Password">
+<input type="submit" value="Sign in">
+
+      </fieldset>
+    </form>
+
+          <form class="float-right viewLoggedIn" id="change-password">
+            <fieldset>
+            <!-- <legend>Password change:</legend> -->
+    <input name ="passwords[old]" type="password" placeholder="Old Password">
+    <input name ="passwords[new]" type="password" placeholder="New Password">
+    <input type="submit" value="Change password" class="viewLoggedIn">
+            </fieldset>
+          </form>
+
+          <form class="float-right viewLoggedIn" id="log-out">
+            <fieldset>
+            <!-- <legend>Log out!</legend> -->
+    <input type="submit" value="Logout">
+            </fieldset>
+          </form>
+  </nav>
+  <h2 id="message">Please sign up and sign in to play</h2>
+  <button class="viewLoggedIn clickToCreate">New Game</button>
+  <button class="viewLoggedIn totalGames">Total Gameplays</button>
+
+      <main>
+        <div class="search-bar">
+          <input class="search-text" type="text" name="" placeholder="Enter your destination">
+          <a class="search-btn" href="#">
+          <i class="fas fa-search"></i>
+        </div>
+         <form class="create">
+            <input name="name" type="text" placeholder="Enter destination">
+            <input name="city" type="text" placeholder="Enter city">
+            <input name="state" type="text" placeholder="Eenter state">
+         </form>
+
+         <form class="update">
+            <input name="change name" type="text" placeholder="Enter new name">
+            <input name="change city" type="text" placeholder="Enter new city">
+            <input name="change state" type="text" placeholder="Enter new state">
+         </form>
+
+         <form class="delete">
+         </form>
+
+      </main>
+      <footer> by 7 ~^^~!
+        <!-- <p> by 7 ~^^~</p> -->
+      </footer>
+    </body>
+</html>
