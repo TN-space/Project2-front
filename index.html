@@ -12,7 +12,7 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="https://kit.fontawesome.com/68e156b8e9.js" crossorigin="anonymous"></script>
+      <!-- <script src="https://kit.fontawesome.com/68e156b8e9.js" crossorigin="anonymous"></script> -->
     </head>
     <body>
       <h1>Welcome!</h1>
@@ -55,30 +55,45 @@
             </fieldset>
           </form>
   </nav>
-  <h2 id="message">Please sign up and sign in to play</h2>
+  <!-- <h2 id="message">Please sign up and sign in to play</h2>
   <button class="viewLoggedIn clickToCreate">New Game</button>
-  <button class="viewLoggedIn totalGames">Total Gameplays</button>
+  <button class="viewLoggedIn totalGames">Total Gameplays</button> -->
 
       <main>
         <div class="search-bar">
-          <input class="search-text" type="text" name="" placeholder="Enter your destination">
-          <a class="search-btn" href="#">
+          <input class="search-text" type="text" name="search" placeholder="Enter SEARCH destination">
+          <a class="search-btn" href="#"></a>
           <i class="fas fa-search"></i>
         </div>
          <form class="create">
-            <input name="name" type="text" placeholder="Enter destination">
-            <input name="city" type="text" placeholder="Enter city">
-            <input name="state" type="text" placeholder="Eenter state">
+            <label for="Destination">Destination</label>
+              <input name="destination[name]"type="text" id="name" value ="" placeholder="Enter destination">
+            <label for="City">City</label>
+              <input name="destination[city]"type="text" id="city" value="" placeholder="Enter city">
+            <label for="State">State</label>
+              <input name="destination[state]"type="text" id="state" value="" placeholder="Enter state">
+            <!-- <button class="btn">Create</button> -->
+              <input type="submit" class="btn" value="create">
          </form>
 
          <form class="update">
-            <input name="change name" type="text" placeholder="Enter new name">
-            <input name="change city" type="text" placeholder="Enter new city">
-            <input name="change state" type="text" placeholder="Enter new state">
-         </form>
+          <label for="Destination">New name</label>
+            <input type="text" class="input name" placeholder="Enter new name">
+          <label for="City">New city</label>
+            <input type="text" class="input city" placeholder="Enter new city">
+          <label for="State">New state</label>
+            <input type="text" class="input state" placeholder="Enter new state">
+            <!-- <button class="btn">Update</button> -->
+            <input type="submit" value="remove">
+            <input type="submit" class="btn" value="update">
 
-         <form class="delete">
          </form>
+         <form>
+          <input type="submit" id="show-list" value="Your destinations">
+          <div id="list"></div>
+        </form>
+         <!-- <form class="delete">
+         </form> -->
 
       </main>
       <footer> by 7 ~^^~!
