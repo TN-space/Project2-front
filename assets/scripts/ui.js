@@ -9,6 +9,7 @@ const signUpSuccess = function (data) {
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
   // console.log('signUpSuccess data is: ', data)
+  $('.edit-clicked').hide()
 }
 const signUpFailure = function (data) {
   $('#signUpInOut').text('Signed up failed')
@@ -27,6 +28,7 @@ const signInSuccess = function (data) {
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
   // console.log('signInSuccess data is: ', data)
+  $('.edit-clicked').hide()
   store.user = data.user
 }
 const signInFailure = function (data) {
@@ -36,6 +38,7 @@ const signInFailure = function (data) {
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
   // console.log('signInFailure error is: ', error)
+  $('.edit-clicked').hide()
 }
 
 const pwChangeSuccess = function (data) {
@@ -65,6 +68,7 @@ const logOutSuccess = function (data) {
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
   // console.log('logOutSuccess: ', data)
+  $('.edit-clicked').hide()
 }
 const logOutFailure = function (data) {
   $('#signUpInOut').text('How did you even fail logging out????')
@@ -77,24 +81,43 @@ const logOutFailure = function (data) {
 
 const showListSuccess = function (data) {
   // console.log('SEEEEE This: ', data.destinations)
-
-  function empty () {
+  const createEditButton = (text = 'No text') => {
+    const button = document.createElement('button')
+    button.className = 'edit-button'
+    button.innerText = text
+    $('#list').append(button)
+    return button
+  }
+  const createDeleteButton = (text = 'No text') => {
+    const button = document.createElement('button')
+    button.className = 'delete-button'
+    button.innerText = text
+    $('#list').append(button, `<br> <br> <br>`)
+    return button
+  }
+  function emptyList () {
     $('#list').html('')
   }
-  empty()
+  emptyList()
 
   data.destinations.forEach(destination => {
     const destinationHTML = (`
       <h4>name: ${destination.name}</h4>
       <p>city: ${destination.city}</p>
       <p>state: ${destination.state}</p>
-      <br>
     `)
     $('#list').append(destinationHTML)
+    createEditButton('Edit')
+    createDeleteButton('Delete')
   })
-  $('#signUpInOut').removeClass()
+  // $('#signUpInOut').removeClass()
   // $('form input[type="text"]').val('')
   // $('form input[type="password"]').val('')
+}
+
+const toShowEditForm = function (data) {
+  $('*').hide()
+  $('.edit-clicked').show()
 }
 
 const success = function (data) {
@@ -113,6 +136,7 @@ module.exports = {
   logOutSuccess,
   logOutFailure,
   showListSuccess,
+  toShowEditForm,
   success,
   failure
 }

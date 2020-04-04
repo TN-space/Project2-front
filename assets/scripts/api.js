@@ -40,7 +40,7 @@ const logOut = function () {
   })
 }
 
-const showList = function () {
+const showListReq = function () {
   return $.ajax({
     url: config.apiUrl + '/destinations',
     method: 'GET',
@@ -50,7 +50,7 @@ const showList = function () {
   })
 }
 
-const toCreateDestination = function (data) {
+const createDestinationReq = function (data) {
   return $.ajax({
     url: config.apiUrl + '/destinations',
     method: 'POST',
@@ -61,11 +61,40 @@ const toCreateDestination = function (data) {
   })
 }
 
+const editDestinationReq = function (name, city, state) {
+  return $.ajax({
+    url: config.apiUrl + '/destinations/' + store.destination.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      destination: {
+        name: name,
+        city: city,
+        state: state
+      }
+    }
+  })
+}
+
+const deleteDestinationReq = function () {
+  return $.ajax({
+    url: config.apiUrl + '/destinations/' + store.destination.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   pwChange,
   logOut,
-  toCreateDestination,
-  showList
+  createDestinationReq,
+  showListReq,
+  editDestinationReq,
+  deleteDestinationReq
 }

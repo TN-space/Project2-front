@@ -54,15 +54,15 @@ const onLogOut = function (event) {
 //   // or api.signUp(getFormFields(event.target))
 // }
 
-const showListOfDestination = function () {
+const toShowList = function (event) {
   event.preventDefault()
-  api.showList()
+  api.showListReq()
     .then(ui.showListSuccess)
     .catch(ui.failure)
 }
 
 const destinations = []
-const createDestination = function (event) {
+const toCreateDestination = function (event) {
   event.preventDefault()
   // console.log('Create is ')
   // console.log('See the Destinations Array1: ', destinations)
@@ -74,20 +74,49 @@ const createDestination = function (event) {
     }
   }
   // console.log('See the destination: ', destination)
-  api.toCreateDestination(destination)
+  api.createDestinationReq(destination)
     .then(ui.success)
     .catch(ui.failure)
   destinations.push(destination)
   // console.log('See the Destinations Array: ', destinations)
   document.querySelector('form').reset() // to clear the form for next entries
 }
+
+const toEditDestination = function (event) {
+  event.preventDefault()
+  api.editDestinationReq()
+  document.open()
+  document.write(`<form class="Edit">
+   <label for="Destination">New name</label>
+     <input type="text" class="input name" placeholder="Enter new name">
+   <label for="City">New city</label>
+     <input type="text" class="input city" placeholder="Enter new city">
+   <label for="State">New state</label>
+     <input type="text" class="input state" placeholder="Enter new state">
+     <!-- <button class="btn">Update</button> -->
+     <input type="submit" value="remove">
+     <input type="submit" class="btn" value="update">
+
+  </form>`)
+  document.close()
+}
+
+const toDeleteDestination = function (event) {
+  event.preventDefault()
+  api.deleteDestinationReq()
+    .then(ui.success)
+    .catch(ui.failure)
+}
 // const something = getFormFields(form)
 // console.log('this is getFormFields: ', something)
+
 module.exports = {
   onSignUp,
   onSignIn,
   onPwChange,
   onLogOut,
-  createDestination,
-  showListOfDestination
+  toCreateDestination,
+  toShowList,
+  toEditDestination,
+  toDeleteDestination
 }
