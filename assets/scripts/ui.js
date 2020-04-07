@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store')
+const showDestinationTemplate = require('./templates/destination-listing.handlebars')
 
 const signUpSuccess = function (data) {
   $('#signUpInOut').text('Signed up successfully')
@@ -79,45 +80,51 @@ const logOutFailure = function (data) {
   // console.log('logOutFailure error is: ', error)
 }
 
-const showListSuccess = function (data) {
-  // console.log('SEEEEE This: ', data.destinations)
-  const createEditButton = (text = 'No text') => {
-    const button = document.createElement('button')
-    button.className = 'edit-button'
-    button.innerText = text
-    $('#list').append(button)
-    return button
-  }
-  const createDeleteButton = (text = 'No text') => {
-    const button = document.createElement('button')
-    button.className = 'delete-button'
-    button.innerText = text
-    $('#list').append(button, `<br> <br> <br>`)
-    return button
-  }
-  function emptyList () {
-    $('#list').html('')
-  }
-  emptyList()
+// const showListSuccess = function (data) {
+//   // console.log('SEEEEE This: ', data.destinations)
+//   const createEditButton = (text = 'No text') => {
+//     const button = document.createElement('button')
+//     button.className = 'edit-button'
+//     button.innerText = text
+//     $('#list').append(button)
+//     return button
+//   }
+//   const createDeleteButton = (text = 'No text') => {
+//     const button = document.createElement('button')
+//     button.className = 'delete-button'
+//     button.innerText = text
+//     $('#list').append(button, `<br> <br> <br>`)
+//     return button
+//   }
+//   function emptyList () {
+//     $('#list').html('')
+//   }
+//   emptyList()
+//
+//   data.destinations.forEach(destination => {
+//     const destinationHTML = (`
+//       <h4>name: ${destination.name}</h4>
+//       <p>city: ${destination.city}</p>
+//       <p>state: ${destination.state}</p>
+//     `)
+//     $('#list').append(destinationHTML)
+//     createEditButton('Edit')
+//     createDeleteButton('Delete')
+//   })
+//   // $('#signUpInOut').removeClass()
+//   // $('form input[type="text"]').val('')
+//   // $('form input[type="password"]').val('')
+// }
+//
+// const toShowEditForm = function (data) {
+//   $('*').hide()
+//   $('.edit-clicked').show()
+// }
 
-  data.destinations.forEach(destination => {
-    const destinationHTML = (`
-      <h4>name: ${destination.name}</h4>
-      <p>city: ${destination.city}</p>
-      <p>state: ${destination.state}</p>
-    `)
-    $('#list').append(destinationHTML)
-    createEditButton('Edit')
-    createDeleteButton('Delete')
-  })
-  // $('#signUpInOut').removeClass()
-  // $('form input[type="text"]').val('')
-  // $('form input[type="password"]').val('')
-}
-
-const toShowEditForm = function (data) {
-  $('*').hide()
-  $('.edit-clicked').show()
+const showDestinationSuccess = (data) => {
+  // console.log('is this JSON: ', data.destinations)
+  const showDestinationHTML = showDestinationTemplate({ destinations: data.destinations })
+  $('#list').html(showDestinationHTML)
 }
 
 const success = function (data) {
@@ -135,8 +142,9 @@ module.exports = {
   pwChangeFailure,
   logOutSuccess,
   logOutFailure,
-  showListSuccess,
-  toShowEditForm,
+  // showListSuccess,
+  // toShowEditForm,
+  showDestinationSuccess,
   success,
   failure
 }

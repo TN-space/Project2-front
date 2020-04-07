@@ -54,13 +54,6 @@ const onLogOut = function (event) {
 //   // or api.signUp(getFormFields(event.target))
 // }
 
-const toShowList = function (event) {
-  event.preventDefault()
-  api.showListReq()
-    .then(ui.showListSuccess)
-    .catch(ui.failure)
-}
-
 const destinations = []
 const toCreateDestination = function (event) {
   event.preventDefault()
@@ -82,30 +75,46 @@ const toCreateDestination = function (event) {
   document.querySelector('form').reset() // to clear the form for next entries
 }
 
-const toEditDestination = function (event) {
+// const toEditDestination = function (event) {
+//   event.preventDefault()
+//   api.editDestinationReq()
+//     .then(ui.success)
+//     .catch(ui.failure)
+  // document.open()
+  // document.write(`<form class="Edit">
+  //  <label for="Destination">New name</label>
+  //    <input type="text" class="input name" placeholder="Enter new name">
+  //  <label for="City">New city</label>
+  //    <input type="text" class="input city" placeholder="Enter new city">
+  //  <label for="State">New state</label>
+  //    <input type="text" class="input state" placeholder="Enter new state">
+  //    <!-- <button class="btn">Update</button> -->
+  //    <input type="submit" value="remove">
+  //    <input type="submit" class="btn" value="update">
+  //
+  // </form>`)
+  // document.close()
+// }
+const toShowList = function (event) {
   event.preventDefault()
-  api.editDestinationReq()
-  document.open()
-  document.write(`<form class="Edit">
-   <label for="Destination">New name</label>
-     <input type="text" class="input name" placeholder="Enter new name">
-   <label for="City">New city</label>
-     <input type="text" class="input city" placeholder="Enter new city">
-   <label for="State">New state</label>
-     <input type="text" class="input state" placeholder="Enter new state">
-     <!-- <button class="btn">Update</button> -->
-     <input type="submit" value="remove">
-     <input type="submit" class="btn" value="update">
-
-  </form>`)
-  document.close()
+  api.showListReq()
+    // .then(ui.showListSuccess)
+    .then(ui.showDestinationSuccess)
+    .catch(ui.failure)
 }
-
 const toDeleteDestination = function (event) {
   event.preventDefault()
-  api.deleteDestinationReq()
+  const destinationID = $(event.target).data('id')
+  console.log('day neeeeeeeeeeeeeeeeee', event.target)
+  console.log('day neeeeeee IDDDDDDDDD', destinationID)
+
+  api.deleteDestinationReq(destinationID)
     .then(ui.success)
     .catch(ui.failure)
+}
+const addHandlebars = () => {
+  $('#listing-button').on('click', toShowList)
+  $('#list').on('click', '.delete-button', toDeleteDestination)
 }
 // const something = getFormFields(form)
 // console.log('this is getFormFields: ', something)
@@ -116,7 +125,8 @@ module.exports = {
   onPwChange,
   onLogOut,
   toCreateDestination,
-  toShowList,
-  toEditDestination,
-  toDeleteDestination
+  addHandlebars
+  // toShowList,
+  // toEditDestination,
+  // toDeleteDestination
 }

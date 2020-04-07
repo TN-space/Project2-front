@@ -78,9 +78,10 @@ const editDestinationReq = function (name, city, state) {
   })
 }
 
-const deleteDestinationReq = function () {
+const deleteDestinationReq = function (destinationID) {
+  console.log('Destination ID neeeeeeeeeee: ', destinationID)
   return $.ajax({
-    url: config.apiUrl + '/destinations/' + store.destination.id,
+    url: config.apiUrl + '/destinations/' + destinationID,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token

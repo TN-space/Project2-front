@@ -3,7 +3,6 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const authEvents = require('./events.js')
-const ui = require('./ui')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
@@ -16,8 +15,8 @@ $(() => {
   // sign out on submit
   $('#log-out').on('submit', authEvents.onLogOut)
   $('.btn').on('click', authEvents.toCreateDestination)
-  $('#show-list').on('click', authEvents.toShowList)
-  // $('.edit-button').on('click', authEvents.toEditDestination)
-  $('.edit-button').on('click', ui.toShowEditForm)
-  $('.delete-button').on('click', authEvents.toDeleteDestination)
+  authEvents.addHandlebars()
+  // $('#show-list').on('click', authEvents.toShowList)
+  // $('.edit-button').on('click', ui.toShowEditForm)
+  // $('.delete-button').on('click', authEvents.toDeleteDestination)
 })
