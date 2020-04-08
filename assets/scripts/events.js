@@ -3,6 +3,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const editTemplate = require('./templates/edit-form.handlebars')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -68,7 +69,7 @@ const toCreateDestination = function (event) {
   }
   // console.log('See the destination: ', destination)
   api.createDestinationReq(destination)
-    .then(ui.success)
+    .then(ui.createDestinationSuccess)
     .catch(ui.failure)
   destinations.push(destination)
   // console.log('See the Destinations Array: ', destinations)
@@ -105,16 +106,35 @@ const toShowList = function (event) {
 const toDeleteDestination = function (event) {
   event.preventDefault()
   const destinationID = $(event.target).data('id')
-  console.log('day neeeeeeeeeeeeeeeeee', event.target)
-  console.log('day neeeeeee IDDDDDDDDD', destinationID)
-
   api.deleteDestinationReq(destinationID)
     .then(ui.success)
     .catch(ui.failure)
 }
+// const toShowEditForm = function (event) {
+//   event.preventDefault()
+//   console.log('This is editTemplate: ', editTemplate)
+//   ui.showEditSuccess(editTemplate)
+// }
+const toSaveEdit = function (event) {
+  event.preventDefault()
+  const destination = {
+    destination: {
+      name: $('.name').val(),
+      city: $('.city').val(),
+      state: $('.state').val()
+    }
+  }
+  const destinationID = $('.id').val()
+  api.editDestinationReq(destinationID, destination)
+    .then(ui.showSaveSuccess)
+    .catch(ui.failure)
+
+  // console.log('See the destination: ', destination)
+}
 const addHandlebars = () => {
   $('#listing-button').on('click', toShowList)
   $('#list').on('click', '.delete-button', toDeleteDestination)
+  // $('#list').on('click', '.edit-button', toShowEditForm)
 }
 // const something = getFormFields(form)
 // console.log('this is getFormFields: ', something)
@@ -125,6 +145,7 @@ module.exports = {
   onPwChange,
   onLogOut,
   toCreateDestination,
+  toSaveEdit,
   addHandlebars
   // toShowList,
   // toEditDestination,

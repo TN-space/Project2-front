@@ -2,6 +2,7 @@
 
 const store = require('./store')
 const showDestinationTemplate = require('./templates/destination-listing.handlebars')
+const showEditformTemplate = require('./templates/edit-form.handlebars')
 
 const signUpSuccess = function (data) {
   $('#signUpInOut').text('Signed up successfully')
@@ -120,11 +121,33 @@ const logOutFailure = function (data) {
 //   $('*').hide()
 //   $('.edit-clicked').show()
 // }
-
+const createDestinationSuccess = function (data) {
+  $('#signUpInOut').hide()
+  $('#message').text(`New destination successfully created, click "List" button again to see your updated list`)
+  $('form input[type="text"]').val('')
+  $('form input[type="text"]').val('')
+  // console.log('logOutSuccess: ', data)
+  $('.edit-clicked').hide()
+}
 const showDestinationSuccess = (data) => {
+  $('signUpInOut').hide()
+  $('#message').text(`Your most updated list!`)
+  $('.edit-clicked').hide()
+
   // console.log('is this JSON: ', data.destinations)
   const showDestinationHTML = showDestinationTemplate({ destinations: data.destinations })
   $('#list').html(showDestinationHTML)
+}
+const showSaveSuccess = data => {
+  console.log('save successful, data!!! ', data)
+  $('form input[type="text"]').val('')
+  $('form input[type="text"]').val('')
+}
+const showEditSuccess = (data) => {
+  console.log('DATA DEFINE?????: ', data)
+
+  const showEditFormHTML = showEditformTemplate({forms: data})
+  $('#edit-form').html(showEditFormHTML)
 }
 
 const success = function (data) {
@@ -144,7 +167,10 @@ module.exports = {
   logOutFailure,
   // showListSuccess,
   // toShowEditForm,
+  createDestinationSuccess,
   showDestinationSuccess,
+  showSaveSuccess,
+  showEditSuccess,
   success,
   failure
 }

@@ -61,25 +61,28 @@ const createDestinationReq = function (data) {
   })
 }
 
-const editDestinationReq = function (name, city, state) {
+const editDestinationReq = function (destinationID, destination) {
+  console.log('nameeeee', destination.name)
+  console.log('citttttttttttttty', destination.city)
+  console.log('stateeeeeeee', destination.state)
   return $.ajax({
-    url: config.apiUrl + '/destinations/' + store.destination.id,
+    url: config.apiUrl + '/destinations/' + destinationID,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
       destination: {
-        name: name,
-        city: city,
-        state: state
+        name: destination.destination.name,
+        city: destination.destination.city,
+        state: destination.destination.state
       }
     }
   })
 }
 
 const deleteDestinationReq = function (destinationID) {
-  console.log('Destination ID neeeeeeeeeee: ', destinationID)
+  // console.log('Destination ID neeeeeeeeeee: ', destinationID)
   return $.ajax({
     url: config.apiUrl + '/destinations/' + destinationID,
     method: 'DELETE',

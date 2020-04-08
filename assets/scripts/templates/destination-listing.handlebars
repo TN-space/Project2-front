@@ -1,11 +1,12 @@
 {{#each destinations as |destination|}}
 {{log destination}}
 <section data-id="{{destination.id}}">
+<h4>ID: {{destination.id}}</h4>
 <h4>Name: {{destination.name}}</h4>
 <h6>City: {{destination.city}}</h6>
 <h6>State: {{destination.state}}</h6>
-<button data-id="{{destination.id}}" class="edit-button">Edit</button>
-<button data-id="{{destination.id}}" class="delete-button">Delete</button>
+<button data-id="{{destination.id}}" type="submit" class="edit-button">Edit</button>
+<button data-id="{{destination.id}}" type="submit" class="delete-button">Delete</button>
 <br>
 <br>
 
