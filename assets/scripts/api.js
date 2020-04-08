@@ -62,9 +62,9 @@ const createDestinationReq = function (data) {
 }
 
 const editDestinationReq = function (destinationID, destination) {
-  console.log('nameeeee', destination.name)
-  console.log('citttttttttttttty', destination.city)
-  console.log('stateeeeeeee', destination.state)
+  // console.log('nameeeee', destination.name)
+  // console.log('citttttttttttttty', destination.city)
+  // console.log('stateeeeeeee', destination.state)
   return $.ajax({
     url: config.apiUrl + '/destinations/' + destinationID,
     method: 'PATCH',

@@ -3,11 +3,16 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const authEvents = require('./events.js')
-// const ui = require('./ui.js')
+const ui = require('./ui.js')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
 $(() => {
+  // $('.viewStart').on('click', ui.firstView)
+  ui.firstView()
+  $('#bSignUp').on('click', ui.firstView1)
+  $('#bSignIn').on('click', ui.firstView2)
+
   $('#sign-up').on('submit', authEvents.onSignUp)
   // sign in on submit
   $('#sign-in').on('submit', authEvents.onSignIn)

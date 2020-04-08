@@ -3,7 +3,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const editTemplate = require('./templates/edit-form.handlebars')
+// const editTemplate = require('./templates/edit-form.handlebars')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -81,20 +81,20 @@ const toCreateDestination = function (event) {
 //   api.editDestinationReq()
 //     .then(ui.success)
 //     .catch(ui.failure)
-  // document.open()
-  // document.write(`<form class="Edit">
-  //  <label for="Destination">New name</label>
-  //    <input type="text" class="input name" placeholder="Enter new name">
-  //  <label for="City">New city</label>
-  //    <input type="text" class="input city" placeholder="Enter new city">
-  //  <label for="State">New state</label>
-  //    <input type="text" class="input state" placeholder="Enter new state">
-  //    <!-- <button class="btn">Update</button> -->
-  //    <input type="submit" value="remove">
-  //    <input type="submit" class="btn" value="update">
-  //
-  // </form>`)
-  // document.close()
+// document.open()
+// document.write(`<form class="Edit">
+//  <label for="Destination">New name</label>
+//    <input type="text" class="input name" placeholder="Enter new name">
+//  <label for="City">New city</label>
+//    <input type="text" class="input city" placeholder="Enter new city">
+//  <label for="State">New state</label>
+//    <input type="text" class="input state" placeholder="Enter new state">
+//    <!-- <button class="btn">Update</button> -->
+//    <input type="submit" value="remove">
+//    <input type="submit" class="btn" value="update">
+//
+// </form>`)
+// document.close()
 // }
 const toShowList = function (event) {
   event.preventDefault()
