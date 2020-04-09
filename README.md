@@ -27,10 +27,11 @@ HTML, scss, jquery, ajax, javascript
 
 ### Improvement:
 Add a search button. \
-After clicking search: \
-  - How many people also searched for the same destinations. \
-  - Heave reviews, add pictures, videos of the destinations. \
-  - See pictures, videos, reviews of the destinations. \
+After clicking search:
+  - How many people also searched for the same destinations.
+  - Heave reviews, add pictures, videos of the destinations.
+  - See pictures, videos, reviews of the destinations.\
+
 After signed in, I want to see suggested/popular or last searched destinations.
 
 ### Image:
