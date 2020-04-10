@@ -58,8 +58,6 @@ const onLogOut = function (event) {
 const destinations = []
 const toCreateDestination = function (event) {
   event.preventDefault()
-  // console.log('Create is ')
-  // console.log('See the Destinations Array1: ', destinations)
   const destination = {
     destination: {
       name: $('#name').val(),
@@ -67,15 +65,14 @@ const toCreateDestination = function (event) {
       state: $('#state').val()
     }
   }
-  // console.log('See the destination: ', destination)
-  api.createDestinationReq(destination)
-    .then(ui.createDestinationSuccess)
-    .catch(ui.failure)
   destinations.push(destination)
-  // console.log('See the Destinations Array: ', destinations)
+  api.createDestinationReq(destination)
+    // .then(toShowList())
+    .then(toShowList())
+    // .then(ui.createDestinationSuccess)
+    .catch(ui.failure)
   document.querySelector('form').reset() // to clear the form for next entries
 }
-
 // const toEditDestination = function (event) {
 //   event.preventDefault()
 //   api.editDestinationReq()
@@ -97,7 +94,7 @@ const toCreateDestination = function (event) {
   // document.close()
 // }
 const toShowList = function (event) {
-  event.preventDefault()
+  // event.preventDefault()
   api.showListReq()
     // .then(ui.showListSuccess)
     .then(ui.showDestinationSuccess)

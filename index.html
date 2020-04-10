@@ -18,11 +18,17 @@
     <body>
       <h1>Welcome!</h1>
       <p id="signUpInOut"></p>
+    <nav class="nav">
+      <button class="showSignUp firstView1">Register</button>
+      <button class="showSignIn firstView1">Sign in</button>
+      <button class="showPWChange firstView2">Change password</button>
+      <button class="showSignOut firstView2">Sign out</button>
 
-    <nav>
-    <form class="float-left viewStart" id="sign-up">
+    </nav>
+    <div class="secondView">
+    <form class="float-left " id="sign-up">
       <fieldset>
-      <!-- <legend>Sign up:</legend> -->
+      <legend>Sign up:</legend>
 <input name ="credentials[email]" type="text" placeholder="Email">
 <input name ="credentials[password]" type="password" placeholder="Password">
 <input name ="credentials[password_confirmation]" type="password" placeholder="Confirm password">
@@ -30,12 +36,12 @@
       </fieldset>
     </form>
 
-    <form class="float-left viewStart" id="sign-in">
+    <form class="float-left" id="sign-in">
       <fieldset>
-      <!-- <legend>Sign in:</legend> -->
+      <legend>Sign in:</legend>
 <input name ="credentials[email]" type="text" placeholder="Email">
 <input name ="credentials[password]" type="password" placeholder="Password">
-<input type="submit" value="Sign in">
+<input type="submit" value="Sign in" id="signed-in">
 
       </fieldset>
     </form>
@@ -55,7 +61,7 @@
     <input type="submit" value="Logout">
             </fieldset>
           </form>
-  </nav>
+
   <!-- <h2 id="message">Please sign up and sign in to play</h2>
   <button class="viewLoggedIn clickToCreate">New Game</button>
   <button class="viewLoggedIn totalGames">Total Gameplays</button> -->
@@ -65,6 +71,12 @@
           <input class="search-text" type="text" name="search" placeholder="Enter SEARCH destination">
           <a class="search-btn" href="#"></a>
           <i class="fas fa-search"></i>
+
+          <section id='nav2'>
+          <input type="submit" id="listing-button" value="Destination List">
+          <button id="showCreate">Add Destination</button>
+
+          </section>
         </div>
          <form class="create">
             <label for="Destination">Destination</label>
@@ -77,7 +89,7 @@
               <input type="submit" id="create-btn" value="create">
          </form>
 
-         <form id="edit-form">
+         <form class="edit" id="edit-form">
            <label for="City">Destination ID</label>
              <input type="text" class="input id" placeholder="Enter destination ID">
            <label for="State">New state</label>
@@ -91,13 +103,13 @@
 
          </form>
          <form>
-          <input type="submit" id="listing-button" value="List">
           <div id="list"></div>
         </form>
          <!-- <form class="delete">
          </form> -->
 
       </main>
+    </div>
       <footer> by 7 ~^^~!
         <!-- <p> by 7 ~^^~</p> -->
       </footer>

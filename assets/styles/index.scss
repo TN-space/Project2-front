@@ -12,6 +12,16 @@ form {
   display: block;
 }
 
-.create {
+.firstView2, .create, .edit {
+  display: none;
+}
 
+.secondView
+  #sign-up,
+  #sign-in,
+  #change-password,
+  #log-out,
+  #showCreate,
+  #listing-button {
+  display: none;
 }

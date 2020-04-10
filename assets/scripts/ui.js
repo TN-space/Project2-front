@@ -4,6 +4,38 @@ const store = require('./store')
 const showDestinationTemplate = require('./templates/destination-listing.handlebars')
 const showEditformTemplate = require('./templates/edit-form.handlebars')
 
+const forFirstView = function () {
+  $('.secondView').hide()
+  $('.firstView2').hide()
+  $('.firstView1').show()
+}
+// for sign-up
+const forFirstView1 = function () {
+  // $('.secondView').show()
+  console.log('firstView1 1111111111111', forFirstView1)
+  $('#sign-up').show()
+  $('#sign-in').hide()
+}
+// for sign-in
+const forFirstView2 = function () {
+  $('#sign-up').hide()
+  $('#sign-in').show()
+}
+// view after signed in
+const forSecondView = function () {
+  $('.firstView1').hide()
+  $('.firstView2').show()
+  $('#sign-in').hide()
+  $('#message').show()
+  $('#showCreate').show()
+  $('.edit').show()
+  $('#listing-button').show()
+}
+
+const showCreateForm = function () {
+  $('.create').show()
+  $('#list').hide()
+}
 const signUpSuccess = function (data) {
   $('#signUpInOut').text('Signed up successfully')
   $('#signUpInOut').removeClass()
@@ -11,7 +43,8 @@ const signUpSuccess = function (data) {
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
   // console.log('signUpSuccess data is: ', data)
-  $('.edit-clicked').hide()
+  $('#sign-up').hide()
+  $('#sign-in').show()
 }
 const signUpFailure = function (data) {
   $('#signUpInOut').text('Signed up failed')
@@ -71,7 +104,9 @@ const logOutSuccess = function (data) {
   $('form input[type="password"]').val('')
   // console.log('logOutSuccess: ', data)
   $('.edit-clicked').hide()
+  $('#list').hide()
 }
+
 const logOutFailure = function (data) {
   $('#signUpInOut').text('How did you even fail logging out????')
   $('#signUpInOut').removeClass()
@@ -127,16 +162,18 @@ const createDestinationSuccess = function (data) {
   $('form input[type="text"]').val('')
   $('form input[type="text"]').val('')
   // console.log('logOutSuccess: ', data)
+  $('#list').show()
   $('.edit-clicked').hide()
 }
 const showDestinationSuccess = (data) => {
-  $('signUpInOut').hide()
+  $('#signUpInOut').hide()
   $('#message').text(`Your most updated list!`)
   $('.edit-clicked').hide()
 
   // console.log('is this JSON: ', data.destinations)
   const showDestinationHTML = showDestinationTemplate({ destinations: data.destinations })
   $('#list').html(showDestinationHTML)
+  $('#list').show()
 }
 const showSaveSuccess = data => {
   console.log('save successful, data!!! ', data)
@@ -157,6 +194,11 @@ const failure = function (data) {
   console.log('the error is: ', data)
 }
 module.exports = {
+  forFirstView,
+  forFirstView1,
+  forFirstView2,
+  forSecondView,
+  showCreateForm,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
