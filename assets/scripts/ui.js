@@ -4,34 +4,31 @@ const store = require('./store')
 const showDestinationTemplate = require('./templates/destination-listing.handlebars')
 const showEditformTemplate = require('./templates/edit-form.handlebars')
 
+// first loaded
 const forFirstView = function () {
-  $('.secondView').hide()
   $('.firstView2').hide()
+  // $('.secondView').hide()
   $('.firstView1').show()
 }
-// for sign-up
+// for sign-up form
 const forFirstView1 = function () {
   // $('.secondView').show()
-  console.log('firstView1 1111111111111', forFirstView1)
-  $('#sign-up').show()
+  // $('.secondView').hide()
   $('#sign-in').hide()
+  $('#sign-up').show()
 }
-// for sign-in
+// for sign-in form
 const forFirstView2 = function () {
+  // $('.secondView').hide()
   $('#sign-up').hide()
   $('#sign-in').show()
 }
-// view after signed in
-const forSecondView = function () {
+// show PW change form
+const forChangePW = function () {
   $('.firstView1').hide()
-  $('.firstView2').show()
-  $('#sign-in').hide()
-  $('#message').show()
-  $('#showCreate').show()
-  $('.edit').show()
-  $('#listing-button').show()
-}
 
+  $('#change-password').show()
+}
 const showCreateForm = function () {
   $('.create').show()
   $('#list').hide()
@@ -52,35 +49,47 @@ const signUpFailure = function (data) {
   $('#signUpInOut').addClass('failure')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-  console.log('signUpFailure error is: ', data)
 }
 
 const signInSuccess = function (data) {
   $('#signUpInOut').text('Signed in successfully!')
   $('#signUpInOut').removeClass()
-  // viewLoggedIn()
   $('#signUpInOut').addClass('success')
+  $('.firstView1').hide()
+  $('#sign-in').hide()
+
+  $('.firstView2').show()
+  $('.signedIn').show()
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-  // console.log('signInSuccess data is: ', data)
-  $('.edit-clicked').hide()
+  // $('.edit-clicked').hide()
   store.user = data.user
 }
 const signInFailure = function (data) {
   $('#signUpInOut').text('Signed in failed')
   $('#signUpInOut').removeClass()
   $('#signUpInOut').addClass('failure')
+  $('.firstView2').hide()
+  forFirstView2()
+  $('.firstView1').show()
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-  // console.log('signInFailure error is: ', error)
-  $('.edit-clicked').hide()
+  // $('.edit-clicked').hide()
 }
 
 const pwChangeSuccess = function (data) {
+  $('#sign-in').hide()
+  $('.firstView1').hide()
+  $('#change-password').hide()
   $('#signUpInOut').show()
   $('#signUpInOut').text('Password change successfully!')
   $('#signUpInOut').removeClass()
   $('#signUpInOut').addClass('success')
+  $('.firstView2').show()
+  $('#message').show()
+  $('#showCreate').show()
+  $('.edit').show()
+  $('#listing-button').show()
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
   // console.log('PasswordChangeSuccess data is: ', data)
@@ -197,7 +206,7 @@ module.exports = {
   forFirstView,
   forFirstView1,
   forFirstView2,
-  forSecondView,
+  forChangePW,
   showCreateForm,
   signUpSuccess,
   signUpFailure,

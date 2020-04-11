@@ -12,16 +12,19 @@ form {
   display: block;
 }
 
-.firstView2, .create, .edit {
+.create,
+.edit,
+.firstView2,
+.secondView,
+.signedIn {
   display: none;
 }
 
-.secondView
-  #sign-up,
-  #sign-in,
-  #change-password,
-  #log-out,
-  #showCreate,
-  #listing-button {
-  display: none;
-}
+// #sign-up,
+// #sign-in,
+// #change-password,
+// #log-out,
+// #nav2,
+// #edit-form {
+//   display: none;
+// }

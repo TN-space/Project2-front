@@ -8,17 +8,20 @@ const ui = require('./ui.js')
 // require('./example')
 
 $(() => {
-  // $('.viewStart').on('click', ui.firstView)
+  // ui.firstView()
   $('.showSignUp').on('click', ui.forFirstView1)
   $('.showSignIn').on('click', ui.forFirstView2)
-  $('#signed-in').on('click', ui.forSecondView)
+  // $('#signed-in').on('click', ui.forSecondView)
+  // $('#pwchange-cancel').on('click', ui.forSecondView)
+
+  $('.showPWChange').on('click', ui.forChangePW)
   $('#showCreate').on('click', ui.showCreateForm)
 
   $('#sign-up').on('submit', authEvents.onSignUp)
   // sign in on submit
   $('#sign-in').on('submit', authEvents.onSignIn)
   // change pw on submit
-  $('#change-password').on('submit', authEvents.onPwChange)
+  $('#pwchange-btn').on('submit', authEvents.onPwChange)
   // sign out on submit
   $('#log-out').on('submit', authEvents.onLogOut)
   $('#create-btn').on('click', authEvents.toCreateDestination)

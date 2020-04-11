@@ -23,10 +23,9 @@
       <button class="showSignIn firstView1">Sign in</button>
       <button class="showPWChange firstView2">Change password</button>
       <button class="showSignOut firstView2">Sign out</button>
-
     </nav>
-    <div class="secondView">
-    <form class="float-left " id="sign-up">
+
+    <form class="float-left secondView" id="sign-up">
       <fieldset>
       <legend>Sign up:</legend>
 <input name ="credentials[email]" type="text" placeholder="Email">
@@ -46,16 +45,18 @@
       </fieldset>
     </form>
 
-          <form class="float-right viewLoggedIn" id="change-password">
+          <form class="float-right secondView" id="change-password">
             <fieldset>
-            <!-- <legend>Password change:</legend> -->
-    <input name ="passwords[old]" type="password" placeholder="Old Password">
-    <input name ="passwords[new]" type="password" placeholder="New Password">
-    <input type="submit" value="Change password" class="viewLoggedIn">
+            <legend>Password Change:</legend>
+    <input name ="passwords[old]" type="password" placeholder="New Password">
+    <input name ="passwords[new]" type="password" placeholder="Confirm New Password">
+    <input type="submit" id='pwchange-btn' value="Change password">
+    <button id="pwchange-cancel">Cancel</button>
+
             </fieldset>
           </form>
 
-          <form class="float-right viewLoggedIn" id="log-out">
+          <form class="float-right secondView" id="log-out">
             <fieldset>
             <!-- <legend>Log out!</legend> -->
     <input type="submit" value="Logout">
@@ -66,18 +67,18 @@
   <button class="viewLoggedIn clickToCreate">New Game</button>
   <button class="viewLoggedIn totalGames">Total Gameplays</button> -->
       <div><h4 id="message"></h4></div>
-      <main>
+      <main class="secondView signedIn">
         <div class="search-bar">
           <input class="search-text" type="text" name="search" placeholder="Enter SEARCH destination">
           <a class="search-btn" href="#"></a>
           <i class="fas fa-search"></i>
+        </div>
 
-          <section id='nav2'>
+          <section id="nav2">
           <input type="submit" id="listing-button" value="Destination List">
           <button id="showCreate">Add Destination</button>
-
           </section>
-        </div>
+
          <form class="create">
             <label for="Destination">Destination</label>
               <input type="text" id="name" value ="" placeholder="Enter destination">
@@ -102,6 +103,7 @@
             <input type="submit" id="save-button" value="Save">
 
          </form>
+
          <form>
           <div id="list"></div>
         </form>
@@ -109,7 +111,6 @@
          </form> -->
 
       </main>
-    </div>
       <footer> by 7 ~^^~!
         <!-- <p> by 7 ~^^~</p> -->
       </footer>
