@@ -22,15 +22,15 @@
       <button class="showSignUp firstView1">Register</button>
       <button class="showSignIn firstView1">Sign in</button>
       <button class="showPWChange firstView2">Change password</button>
-      <button class="showSignOut firstView2">Sign out</button>
+      <button type="submit" id="log-out" class="showSignOut firstView2">Sign out</button>
     </nav>
 
     <form class="float-left secondView" id="sign-up">
       <fieldset>
       <legend>Sign up:</legend>
-<input name ="credentials[email]" type="text" placeholder="Email">
-<input name ="credentials[password]" type="password" placeholder="Password">
-<input name ="credentials[password_confirmation]" type="password" placeholder="Confirm password">
+<input name ="credentials[email]" type="text" autocomplete="username" placeholder="Email">
+<input name ="credentials[password]" type="password" autocomplete="new-password" placeholder="Password">
+<input name ="credentials[password_confirmation]" type="password" autocomplete="new-password" placeholder="Confirm password">
 <input type="submit" value="Sign up">
       </fieldset>
     </form>
@@ -38,9 +38,9 @@
     <form class="float-left" id="sign-in">
       <fieldset>
       <legend>Sign in:</legend>
-<input name ="credentials[email]" type="text" placeholder="Email">
-<input name ="credentials[password]" type="password" placeholder="Password">
-<input type="submit" value="Sign in" id="signed-in">
+<input name ="credentials[email]" type="text" autocomplete="username" placeholder="Email">
+<input name ="credentials[password]" type="password" autocomplete="current-password" placeholder="Password">
+<input type="submit" value="Sign in">
 
       </fieldset>
     </form>
@@ -48,24 +48,13 @@
           <form class="float-right secondView" id="change-password">
             <fieldset>
             <legend>Password Change:</legend>
-    <input name ="passwords[old]" type="password" placeholder="New Password">
-    <input name ="passwords[new]" type="password" placeholder="Confirm New Password">
-    <input type="submit" id='pwchange-btn' value="Change password">
+    <input name ="passwords[old]" type="password" autocomplete="current-password" placeholder="Current Password">
+    <input name ="passwords[new]" type="password" autocomplete="new-password" placeholder="New Password">
+    <input type="submit" value="Change password">
     <button id="pwchange-cancel">Cancel</button>
-
             </fieldset>
           </form>
 
-          <form class="float-right secondView" id="log-out">
-            <fieldset>
-            <!-- <legend>Log out!</legend> -->
-    <input type="submit" value="Logout">
-            </fieldset>
-          </form>
-
-  <!-- <h2 id="message">Please sign up and sign in to play</h2>
-  <button class="viewLoggedIn clickToCreate">New Game</button>
-  <button class="viewLoggedIn totalGames">Total Gameplays</button> -->
       <div><h4 id="message"></h4></div>
       <main class="secondView signedIn">
         <div class="search-bar">
@@ -80,6 +69,8 @@
           </section>
 
          <form class="create">
+         <fieldset>
+           <legend>New Destination:</legend>
             <label for="Destination">Destination</label>
               <input type="text" id="name" value ="" placeholder="Enter destination">
             <label for="City">City</label>
@@ -87,21 +78,23 @@
             <label for="State">State</label>
               <input type="text" id="state" value="" placeholder="Enter state">
             <!-- <button class="btn">Create</button> -->
-              <input type="submit" id="create-btn" value="create">
+              <input type="submit" id="create-btn" value="Create">
+            </fieldset>
          </form>
 
-         <form class="edit" id="edit-form">
-           <label for="City">Destination ID</label>
-             <input type="text" class="input id" placeholder="Enter destination ID">
-           <label for="State">New state</label>
-          <label for="Destination">New name</label>
+         <form class="edit signedIn" id="edit-form">
+           <fieldset>
+           <legend>Edit Destination:</legend>
+           <label for="destination_id">Destination ID</label>
+            <input type="text" class="input id" placeholder="Enter destination ID">
+          <label for="Destination">Name</label>
             <input type="text" class="input name" placeholder="Enter new name">
-          <label for="City">New city</label>
+          <label for="City">City</label>
             <input type="text" class="input city" placeholder="Enter new city">
-          <label for="State">New state</label>
+          <label for="State">State</label>
             <input type="text" class="input state" placeholder="Enter new state">
             <input type="submit" id="save-button" value="Save">
-
+          </fieldset>
          </form>
 
          <form>

@@ -20,6 +20,7 @@ const signIn = function (data) {
 }
 
 const pwChange = function (data) {
+  console.log(' dataaaaaaaaaaa ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
