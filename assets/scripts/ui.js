@@ -4,23 +4,39 @@ const store = require('./store')
 const showDestinationTemplate = require('./templates/destination-listing.handlebars')
 const showEditformTemplate = require('./templates/edit-form.handlebars')
 
-// first loaded
-// const forFirstView = function () {
-//   $('.firstView2').hide()
-//   // $('.secondView').hide()
-//   $('.firstView1').show()
-// }
+// first loaded, see sign-in form
+const forFirstView = function () {
+  $('.firstView2').hide()
+  $('#sign-up').hide()
+  $('#change-password').hide()
+  $('#nav2').hide()
+  $('.create').hide()
+  $('.edit').hide()
+  $('#list').hide()
+  $('#message').hide()
+  // $('.secondView').hide()
+  $('.firstView1').show()
+}
 // for sign-up form
 const forFirstView1 = function () {
-  // $('.secondView').show()
-  // $('.secondView').hide()
+  $('#change-password').hide()
+  $('#nav2').hide()
+  $('.create').hide()
+  $('.edit').hide()
+  $('#list').hide()
+  $('#message').hide()
   $('#sign-in').hide()
   $('#signUpInOut').hide()
   $('#sign-up').show()
 }
 // for sign-in form
 const forFirstView2 = function () {
-  // $('.secondView').hide()
+  $('#change-password').hide()
+  $('#nav2').hide()
+  $('.create').hide()
+  $('.edit').hide()
+  $('#list').hide()
+  $('#message').hide()
   $('#sign-up').hide()
   $('#signUpInOut').hide()
   $('#sign-in').show()
@@ -28,7 +44,12 @@ const forFirstView2 = function () {
 // show PW change form
 const forChangePW = function () {
   $('.firstView1').hide()
-  $('.signedIn').hide()
+  $('#change-password').hide()
+  $('#nav2').hide()
+  $('.create').hide()
+  $('.edit').hide()
+  $('#list').hide()
+  $('#message').hide()
   $('#signUpInOut').hide()
   $('#change-password').show()
 }
@@ -36,19 +57,27 @@ const forChangePW = function () {
 const forPWChangeCancel = function (data) {
   event.preventDefault()
   // $('#signUpInOut').text('Signed in successfully!')
-  $('#signUpInOut').removeClass()
+  $('#signUpInOut').hide()
   // $('#signUpInOut').addClass('success')
   $('.firstView1').hide()
   $('#sign-in').hide()
   $('#change-password').hide()
   $('.firstView2').show()
-  $('.signedIn').show()
+  $('#change-password').hide()
+  $('.create').hide()
+  $('#list').hide()
+  $('#message').hide()
+  $('.edit').hide()
+  $('#nav2').show()
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
 }
 const showCreateForm = function () {
-  $('.create').show()
+  $('#signUpInOut').hide()
   $('#list').hide()
+  $('#message').hide()
+  $('.edit').hide()
+  $('.create').show()
 }
 const signUpSuccess = function (data) {
   $('#signUpInOut').show()
@@ -57,7 +86,6 @@ const signUpSuccess = function (data) {
   $('#signUpInOut').addClass('success')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-  // console.log('signUpSuccess data is: ', data)
   $('#sign-up').hide()
   $('#sign-in').show()
 }
@@ -71,14 +99,19 @@ const signUpFailure = function (data) {
 }
 
 const signInSuccess = function (data) {
-  $('#signUpInOut').show()
   $('#signUpInOut').text('Signed in successfully!')
   $('#signUpInOut').removeClass()
   $('#signUpInOut').addClass('success')
   $('.firstView1').hide()
   $('#sign-in').hide()
+  // $('#change-password').hide()
+  $('.create').hide()
+  $('#list').hide()
+  $('#message').hide()
+  $('.edit').hide()
+  $('#signUpInOut').show()
   $('.firstView2').show()
-  $('.signedIn').show()
+  $('#nav2').show()
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
   // $('.edit-clicked').hide()
@@ -102,18 +135,21 @@ const pwChangeSuccess = function (data) {
   $('#sign-in').hide()
   $('.firstView1').hide()
   $('#change-password').hide()
-  $('#signUpInOut').show()
   $('#signUpInOut').text('Password change successfully!')
   $('#signUpInOut').removeClass()
   $('#signUpInOut').addClass('success')
+  $('.create').hide()
+  $('#list').hide()
+  $('#message').hide()
+  $('.edit').hide()
+  $('#signUpInOut').show()
   $('.firstView2').show()
-  $('.signedIn').show()
+  $('#nav2').show()
   // $('#message').show()
   // $('#nav2').show()
   // $('.edit').show()
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-  // console.log('PasswordChangeSuccess data is: ', data)
 }
 const pwChangeFailure = function (data) {
   $('#signUpInOut').show()
@@ -122,22 +158,24 @@ const pwChangeFailure = function (data) {
   $('#signUpInOut').addClass('failure')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-  // console.log('PasswordChangeFailure error is: ', error)
 }
 
 const logOutSuccess = function (data) {
-  $('#signUpInOut').show()
   $('#signUpInOut').text('Sign out successfully!')
   $('#signUpInOut').removeClass()
-  $('.signedIn').hide()
+  $('.create').hide()
+  $('#list').hide()
+  $('#nav2').hide()
+  $('.edit').hide()
   $('.firstView2').hide()
+  $('#message').hide()
+  $('#signUpInOut').show()
   $('.firstView1').show()
   // $('#signUpInOut').hide()
   // $('#sign-up').show()
   $('#signUpInOut').addClass('success')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-  // console.log('logOutSuccess: ', data)
   $('.edit-clicked').hide()
   // $('#list').hide()
 }
@@ -148,7 +186,6 @@ const logOutFailure = function (data) {
   $('#signUpInOut').addClass('failure')
   $('form input[type="text"]').val('')
   $('form input[type="password"]').val('')
-  // console.log('logOutFailure error is: ', error)
 }
 
 // const showListSuccess = function (data) {
@@ -193,15 +230,18 @@ const logOutFailure = function (data) {
 // }
 const createDestinationSuccess = function (data) {
   $('#signUpInOut').hide()
-  $('#message').text(`New destination successfully created, click "List" button again to see your updated list`)
+  $('#message').show()
   $('form input[type="text"]').val('')
   $('form input[type="text"]').val('')
-  // console.log('logOutSuccess: ', data)
-  $('#list').show()
-  $('.edit-clicked').hide()
+  // $('#list').show()
+  // $('.edit-clicked').hide()
 }
 const showDestinationSuccess = (data) => {
   $('#signUpInOut').hide()
+  $('.create').hide()
+  $('.edit').show()
+  $('#message').show()
+  // $('#createNew').hide()
   $('#message').text(`Your most updated list!`)
   $('.edit-clicked').hide()
 
@@ -211,25 +251,24 @@ const showDestinationSuccess = (data) => {
   $('#list').show()
 }
 const showSaveSuccess = data => {
-  console.log('save successful, data!!! ', data)
   $('form input[type="text"]').val('')
   $('form input[type="text"]').val('')
 }
 const showEditSuccess = (data) => {
-  console.log('DATA DEFINE?????: ', data)
+  // console.log('DATA DEFINE?????: ', data)
 
   const showEditFormHTML = showEditformTemplate({forms: data})
   $('#edit-form').html(showEditFormHTML)
 }
 
 const success = function (data) {
-  console.log('It works, here is the data: ', data)
+  // console.log('It works, here is the data: ', data)
 }
 const failure = function (data) {
-  console.log('the error is: ', data)
+  // console.log('the error is: ', data)
 }
 module.exports = {
-  // forFirstView,
+  forFirstView,
   forFirstView1,
   forFirstView2,
   forChangePW,

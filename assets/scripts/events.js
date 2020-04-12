@@ -3,7 +3,7 @@
 const getFormFields = require('../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const editTemplate = require('./templates/edit-form.handlebars')
+// const editTemplate = require('./templates/edit-form.handlebars')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -69,8 +69,11 @@ const toCreateDestination = function (event) {
   api.createDestinationReq(destination)
     // .then(toShowList())
     .then(ui.createDestinationSuccess)
+    .then(function () {
+      toShowList(event)
+    })
     .catch(ui.failure)
-  document.querySelector('form').reset() // to clear the form for next entries
+  // document.querySelector('form').reset() // to clear the form for next entries
 }
 // const toEditDestination = function (event) {
 //   event.preventDefault()
@@ -94,9 +97,7 @@ const toCreateDestination = function (event) {
 // }
 const toShowList = function (event) {
   event.preventDefault()
-  // console.log('destinationssssssssssss', destinations)
   api.showListReq()
-    // .then(ui.showListSuccess)
     .then(ui.showDestinationSuccess)
     .catch(ui.failure)
 }
@@ -126,9 +127,10 @@ const toSaveEdit = function (event) {
   const destinationID = $('.id').val()
   api.editDestinationReq(destinationID, destination)
     .then(ui.showSaveSuccess)
+    .then(function () {
+      toShowList(event)
+    })
     .catch(ui.failure)
-
-  // console.log('See the destination: ', destination)
 }
 const addHandlebars = () => {
   $('#listing-button').on('click', toShowList)

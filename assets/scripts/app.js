@@ -8,8 +8,11 @@ const ui = require('./ui.js')
 // require('./example')
 
 $(() => {
-  // ui.firstView()
+  // first dom loaded
+  ui.forFirstView()
+  // to show sign-up form
   $('.showSignUp').on('click', ui.forFirstView1)
+  // to show sign-in form
   $('.showSignIn').on('click', ui.forFirstView2)
   $('.showPWChange').on('click', ui.forChangePW)
   $('#pwchange-cancel').on('click', ui.forPWChangeCancel)

@@ -3,7 +3,6 @@ const config = require('./config')
 const store = require('./store')
 
 const signUp = function (data) {
-  // console.log('data is ', data)
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -20,7 +19,6 @@ const signIn = function (data) {
 }
 
 const pwChange = function (data) {
-  console.log(' dataaaaaaaaaaa ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -42,7 +40,6 @@ const logOut = function () {
 }
 
 const showListReq = function () {
-  // console.log('data of show listttttt', data)
   return $.ajax({
     url: config.apiUrl + '/destinations',
     method: 'GET',
@@ -81,7 +78,6 @@ const editDestinationReq = function (destinationID, destination) {
 }
 
 const deleteDestinationReq = function (destinationID) {
-  // console.log('Destination ID neeeeeeeeeee: ', destinationID)
   return $.ajax({
     url: config.apiUrl + '/destinations/' + destinationID,
     method: 'DELETE',

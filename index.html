@@ -55,8 +55,7 @@
             </fieldset>
           </form>
 
-      <div><h4 id="message"></h4></div>
-      <main class="secondView signedIn">
+      <main class="secondView">
         <div class="search-bar">
           <input class="search-text" type="text" name="search" placeholder="Enter SEARCH destination">
           <a class="search-btn" href="#"></a>
@@ -68,9 +67,9 @@
           <button id="showCreate">Add Destination</button>
           </section>
 
-         <form class="create">
+         <form class="create" id="createNew">
          <fieldset>
-           <legend>New Destination:</legend>
+           <legend>Create Destination:</legend>
             <label for="Destination">Destination</label>
               <input type="text" id="name" value ="" placeholder="Enter destination">
             <label for="City">City</label>
@@ -82,7 +81,7 @@
             </fieldset>
          </form>
 
-         <form class="edit signedIn" id="edit-form">
+         <form class="edit" id="edit-form">
            <fieldset>
            <legend>Edit Destination:</legend>
            <label for="destination_id">Destination ID</label>
@@ -96,6 +95,8 @@
             <input type="submit" id="save-button" value="Save">
           </fieldset>
          </form>
+
+         <div><h4 id="message"></h4></div>
 
          <form>
           <div id="list"></div>
