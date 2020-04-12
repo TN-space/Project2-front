@@ -104,7 +104,9 @@ const toDeleteDestination = function (event) {
   event.preventDefault()
   const destinationID = $(event.target).data('id')
   api.deleteDestinationReq(destinationID)
-    .then(ui.success)
+    .then(function () {
+      toShowList(event)
+    })
     .catch(ui.failure)
 }
 // const toShowEditForm = function (event) {
