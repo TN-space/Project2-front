@@ -16,21 +16,27 @@
       <!-- <script src="https://kit.fontawesome.com/68e156b8e9.js" crossorigin="anonymous"></script> -->
     </head>
     <body>
-      <h1>Welcome!</h1>
-      <p id="signUpInOut"></p>
-    <nav class="nav">
-      <button class="showSignUp firstView1">Register</button>
-      <button class="showSignIn firstView1">Sign in</button>
-      <button class="showPWChange firstView2">Change password</button>
-      <button type="submit" id="log-out" class="showSignOut firstView2">Sign out</button>
-    </nav>
+      <div class="page-header">
+        <!-- <div class="container"> -->
+  <h1>Welcome <small> to tiny world! </small></h1>
+        </div>
+      <div class="color-overlay"></div>
 
+      <p id="signUpInOut"></p>
+      <!-- <div class="btn-group btn-group-lg" role="group" aria-label="..."> -->
+    <nav class="nav nav-pills">
+      <button class="showSignUp firstView1 col-xm-2">Register</button>
+      <button class="showSignIn firstView1 col-xm-2">Sign in</button>
+      <button class="showPWChange firstView2 col-xm-2">Change password</button>
+      <button type="submit" id="log-out" class="showSignOut firstView2 col-xm-2">Sign out</button>
+    </nav>
+      <!-- </div> -->
     <form class="float-left secondView" id="sign-up">
       <fieldset>
       <legend>Sign up:</legend>
-<input name ="credentials[email]" type="text" autocomplete="username" placeholder="Email">
-<input name ="credentials[password]" type="password" autocomplete="new-password" placeholder="Password">
-<input name ="credentials[password_confirmation]" type="password" autocomplete="new-password" placeholder="Confirm password">
+<input name ="credentials[email]" class="form-control" type="text" autocomplete="username" placeholder="name@example.com">
+<input name ="credentials[password]" class="form-control" type="password" autocomplete="new-password" placeholder="new password">
+<input name ="credentials[password_confirmation]" class="form-control" type="password" autocomplete="new-password" placeholder="confirm password">
 <input type="submit" value="Sign up">
       </fieldset>
     </form>
@@ -38,8 +44,8 @@
     <form class="float-left" id="sign-in">
       <fieldset>
       <legend>Sign in:</legend>
-<input name ="credentials[email]" type="text" autocomplete="username" placeholder="Email">
-<input name ="credentials[password]" type="password" autocomplete="current-password" placeholder="Password">
+<input name ="credentials[email]" class="form-control" type="text" autocomplete="username" placeholder="name@example.com">
+<input name ="credentials[password]" class="form-control" type="password" autocomplete="current-password" placeholder="password">
 <input type="submit" value="Sign in">
 
       </fieldset>
@@ -48,8 +54,8 @@
           <form class="float-right secondView" id="change-password">
             <fieldset>
             <legend>Password Change:</legend>
-    <input name ="passwords[old]" type="password" autocomplete="current-password" placeholder="Current Password">
-    <input name ="passwords[new]" type="password" autocomplete="new-password" placeholder="New Password">
+    <input name ="passwords[old]" class="form-control" type="password" autocomplete="current-password" placeholder="current password">
+    <input name ="passwords[new]" class="form-control" type="password" autocomplete="new-password" placeholder="new password">
     <input type="submit" value="Change password">
     <button id="pwchange-cancel">Cancel</button>
             </fieldset>
@@ -67,46 +73,46 @@
           <button id="showCreate">Add Destination</button>
           </section>
 
-         <form class="create" id="createNew">
+         <form class="create input-group" id="createNew">
          <fieldset>
            <legend>Create Destination:</legend>
             <label for="Destination">Destination</label>
-              <input type="text" id="name" value ="" placeholder="Enter destination">
+              <input class="form-control" type="text" id="name" value ="" placeholder="Enter destination">
             <label for="City">City</label>
-              <input type="text" id="city" value="" placeholder="Enter city">
+              <input class="form-control" type="text" id="city" value="" placeholder="Enter city">
             <label for="State">State</label>
-              <input type="text" id="state" value="" placeholder="Enter state">
+              <input class="form-control" type="text" id="state" value="" placeholder="Enter state">
             <!-- <button class="btn">Create</button> -->
               <input type="submit" id="create-btn" value="Create">
             </fieldset>
          </form>
 
-         <form class="edit" id="edit-form">
+         <form class="edit input-group" id="edit-form">
            <fieldset>
            <legend>Edit Destination:</legend>
            <label for="destination_id">Destination ID</label>
-            <input type="text" class="input id" placeholder="Enter destination ID">
+            <input type="text" class="input id form-control" placeholder="Enter destination ID">
           <label for="Destination">Name</label>
-            <input type="text" class="input name" placeholder="Enter new name">
+            <input type="text" class="input name form-control" placeholder="Enter new name">
           <label for="City">City</label>
-            <input type="text" class="input city" placeholder="Enter new city">
+            <input type="text" class="input city form-control" placeholder="Enter new city">
           <label for="State">State</label>
-            <input type="text" class="input state" placeholder="Enter new state">
+            <input type="text" class="input state form-control" placeholder="Enter new state">
             <input type="submit" id="save-button" value="Save">
           </fieldset>
          </form>
 
          <div><h4 id="message"></h4></div>
 
-         <form>
+         <form class="list-group">
           <div id="list"></div>
         </form>
          <!-- <form class="delete">
          </form> -->
 
       </main>
-      <footer> by 7 ~^^~!
-        <!-- <p> by 7 ~^^~</p> -->
+      <footer>
+        <p> by 7 ~^^~</p>
       </footer>
     </body>
 </html>

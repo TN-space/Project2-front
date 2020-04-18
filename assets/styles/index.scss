@@ -1,16 +1,34 @@
 @import '~bootstrap/scss/bootstrap';
 
+$blk: #000;
+$wht: #fff;
 
 body {
   background-image: url('public/images/background.jpg');
   background-size: cover;
-  color: white;
+  color: $wht;
+
+  .page-header {
+    background: $blk;
+    opacity: .85;
+    padding-bottom: 10px;
+  }
+
+  .color-overlay {
+    background: $blk;
+    height: 100%;
+    opacity: .6;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
 }
 
-form {
-  border: solid black;
-  display: block;
-}
+
+// form {
+//   border: solid black;
+//   display: block;
+// }
 
 // .create,
 // .edit,
