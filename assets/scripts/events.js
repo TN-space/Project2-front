@@ -67,11 +67,10 @@ const toCreateDestination = function (event) {
   }
   destinations.push(destination)
   api.createDestinationReq(destination)
-    // .then(toShowList())
     .then(ui.createDestinationSuccess)
-    .then(function () {
-      toShowList(event)
-    })
+    // .then(function () {
+    //   toShowList(event)
+    // })
     .catch(ui.failure)
   // document.querySelector('form').reset() // to clear the form for next entries
 }

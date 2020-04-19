@@ -230,7 +230,14 @@ const logOutFailure = function (data) {
 // }
 const createDestinationSuccess = function (data) {
   $('#signUpInOut').hide()
+  $('.edit').hide()
   $('#message').show()
+  // const showDestinationHTML = showDestinationTemplate({ destinations: data.destinations })
+  // $('#list').html(showDestinationHTML)
+  // $('#list').show()
+  // $('#createNew').hide()
+  $('#message').text(`New destination added! Check your list`)
+  // $('.edit-clicked').hide()
   $('form input[type="text"]').val('')
   $('form input[type="text"]').val('')
   // $('#list').show()
@@ -242,7 +249,7 @@ const showDestinationSuccess = (data) => {
   $('.edit').show()
   $('#message').show()
   // $('#createNew').hide()
-  $('#message').text(`Your most updated list!`)
+  $('#message').text(`Your list!`)
   $('.edit-clicked').hide()
 
   // console.log('is this JSON: ', data.destinations)
