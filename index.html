@@ -8,7 +8,8 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
+      <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
@@ -18,7 +19,7 @@
     <body>
       <div class="page-header">
         <!-- <div class="container"> -->
-  <h1>Welcome <small> to tiny world! </small></h1>
+  <h1>Welcome <small> to tiny world in your hand! </small></h1>
         </div>
       <div class="color-overlay"></div>
 
@@ -31,7 +32,7 @@
       <button type="submit" id="log-out" class="showSignOut firstView2 col-xm-2">Sign out</button>
     </nav>
       <!-- </div> -->
-    <form class="float-left secondView" id="sign-up">
+    <form class="signup-form secondView col-sm-2" id="sign-up">
       <fieldset>
       <legend>Sign up:</legend>
 <input name ="credentials[email]" class="form-control" type="text" autocomplete="username" placeholder="name@example.com">
@@ -41,7 +42,7 @@
       </fieldset>
     </form>
 
-    <form class="float-left" id="sign-in">
+    <form class="signin-form col-sm-2" id="sign-in">
       <fieldset>
       <legend>Sign in:</legend>
 <input name ="credentials[email]" class="form-control" type="text" autocomplete="username" placeholder="name@example.com">
@@ -51,7 +52,7 @@
       </fieldset>
     </form>
 
-          <form class="float-right secondView" id="change-password">
+          <form class="pwchange-form secondView col-sm-2" id="change-password">
             <fieldset>
             <legend>Password Change:</legend>
     <input name ="passwords[old]" class="form-control" type="password" autocomplete="current-password" placeholder="current password">
@@ -68,12 +69,12 @@
           <i class="fas fa-search"></i>
         </div>
 
-          <section id="nav2">
+          <section class="add-show" id="nav2">
           <input type="submit" id="listing-button" value="Destination List">
           <button id="showCreate">Add Destination</button>
           </section>
 
-         <form class="create input-group" id="createNew">
+         <form class="create col-sm-3" id="createNew">
          <fieldset>
            <legend>Create Destination:</legend>
             <label for="Destination">Destination</label>
@@ -87,7 +88,7 @@
             </fieldset>
          </form>
 
-         <form class="edit input-group" id="edit-form">
+         <form class="edit col-sm-3" id="edit-form">
            <fieldset>
            <legend>Edit Destination:</legend>
            <label for="destination_id">Destination ID</label>

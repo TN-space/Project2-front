@@ -7,6 +7,9 @@ body {
   background-image: url('public/images/background.jpg');
   background-size: cover;
   color: $wht;
+  font-family: 'Aclonica', sans-serif;
+  // padding: 20px;
+  position: relative;
 
   .page-header {
     background: $blk;
@@ -18,31 +21,34 @@ body {
     background: $blk;
     height: 100%;
     opacity: .6;
+    padding: 500px;
     position: absolute;
     width: 100%;
     z-index: -1;
   }
+
+  .nav,
+  .signup-form,
+  .signin-form,
+  .pwchange-form,
+  .create,
+  .edit,
+  .add-show {
+    font-family: 'Nunito', sans-serif;
+  }
+
+  .nav {
+    padding: 10px;
+  }
+
+  .add-show {
+    padding: 10px;
+  }
+
+  footer {
+    bottom: 5px;
+    font-weight: bold;
+    position: absolute;
+    right: 5px;
+  }
 }
-
-
-// form {
-//   border: solid black;
-//   display: block;
-// }
-
-// .create,
-// .edit,
-// .firstView2,
-// .secondView,
-// .signedIn {
-//   display: none;
-// }
-
-// #sign-up,
-// #sign-in,
-// #change-password,
-// #log-out,
-// #nav2,
-// #edit-form {
-//   display: none;
-// }
