@@ -223,11 +223,7 @@ const logOutFailure = function (data) {
 //   // $('form input[type="text"]').val('')
 //   // $('form input[type="password"]').val('')
 // }
-//
-// const toShowEditForm = function (data) {
-//   $('*').hide()
-//   $('.edit-clicked').show()
-// }
+
 const createDestinationSuccess = function (data) {
   $('#signUpInOut').hide()
   $('.edit').hide()
@@ -251,21 +247,20 @@ const showDestinationSuccess = (data) => {
   // $('#createNew').hide()
   $('#message').text(`Your list!`)
   $('.edit-clicked').hide()
+  $('#edit-form').hide()
 
   // console.log('is this JSON: ', data.destinations)
   const showDestinationHTML = showDestinationTemplate({ destinations: data.destinations })
   $('#list').html(showDestinationHTML)
   $('#list').show()
 }
-const showSaveSuccess = data => {
-  $('form input[type="text"]').val('')
-  $('form input[type="text"]').val('')
-}
-const showEditSuccess = (data) => {
-  // console.log('DATA DEFINE?????: ', data)
 
-  const showEditFormHTML = showEditformTemplate({forms: data})
-  $('#edit-form').html(showEditFormHTML)
+const showEditFormSuccess = function (data) {
+  const editDestinationHtml = showEditformTemplate({ destination: data.destination })
+  // const destinationID = data.destination.id
+  $('#edit-form').show()
+  $('#edit-form').html(editDestinationHtml)
+  // $('#entry-message').empty()
 }
 
 const success = function (data) {
@@ -293,8 +288,7 @@ module.exports = {
   // toShowEditForm,
   createDestinationSuccess,
   showDestinationSuccess,
-  showSaveSuccess,
-  showEditSuccess,
+  showEditFormSuccess,
   success,
   failure
 }

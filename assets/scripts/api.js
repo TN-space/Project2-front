@@ -60,20 +60,40 @@ const createDestinationReq = function (data) {
   })
 }
 
-const editDestinationReq = function (destinationID, destination) {
+const getDestinationReq = (destinationID) => {
+  return $.ajax({
+    url: config.apiUrl + '/destinations/' + destinationID,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+// const editDestinationReq = function (destinationID, destination) {
+//   return $.ajax({
+//     url: config.apiUrl + '/destinations/' + destinationID,
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {
+//       destination: {
+//         name: destination.destination.name,
+//         city: destination.destination.city,
+//         state: destination.destination.state
+//       }
+//     }
+//   })
+// }
+const editDestinationReq = function (destinationID, destinationData) {
   return $.ajax({
     url: config.apiUrl + '/destinations/' + destinationID,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: {
-      destination: {
-        name: destination.destination.name,
-        city: destination.destination.city,
-        state: destination.destination.state
-      }
-    }
+    data: destinationData
   })
 }
 
@@ -94,6 +114,7 @@ module.exports = {
   logOut,
   createDestinationReq,
   showListReq,
+  getDestinationReq,
   editDestinationReq,
   deleteDestinationReq
 }

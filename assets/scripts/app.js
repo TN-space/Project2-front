@@ -26,7 +26,7 @@ $(() => {
   // sign out on submit
   $('#log-out').on('click', authEvents.onLogOut)
   $('#create-btn').on('click', authEvents.toCreateDestination)
-  $('#save-button').on('click', authEvents.toSaveEdit)
+  $('#edit-form').on('submit', authEvents.toSaveEditForm)
   authEvents.addHandlebars()
   // $('#list').on('click', '.edit-button', ui.toShowEditForm)
 
