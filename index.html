@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <!-- <link href="https://fonts.googleapis.com/css?family=Inter|Noticia+Text|Permanent+Marker&display=swap" rel="stylesheet"> -->
+
+      <title>Crowded?</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <!-- <script src="https://kit.fontawesome.com/68e156b8e9.js" crossorigin="anonymous"></script> -->
+    </head>
+    <body>
+      <div class="page-header">
+        <!-- <div class="container"> -->
+  <h1>Welcome <small> to Tiny-World in your hand! </small></h1>
+        </div>
+      <div class="color-overlay"></div>
+
+      <p id="signUpInOut"></p>
+      <!-- <div class="btn-group btn-group-lg" role="group" aria-label="..."> -->
+    <nav class="nav nav-pills">
+      <button class="showSignUp firstView1 col-xm-2">Register</button>
+      <button class="showSignIn firstView1 col-xm-2">Sign in</button>
+      <button class="showPWChange firstView2 col-xm-2">Change password</button>
+      <button type="submit" id="log-out" class="showSignOut firstView2 col-xm-2">Sign out</button>
+    </nav>
+      <!-- </div> -->
+    <form class="signup-form secondView col-sm-2" id="sign-up">
+      <fieldset>
+      <legend>Sign up:</legend>
+<input name ="credentials[email]" class="form-control" type="text" autocomplete="username" placeholder="name@example.com">
+<input name ="credentials[password]" class="form-control" type="password" autocomplete="new-password" placeholder="new password">
+<input name ="credentials[password_confirmation]" class="form-control" type="password" autocomplete="new-password" placeholder="confirm password">
+<input type="submit" value="Sign up">
+      </fieldset>
+    </form>
+
+    <form class="signin-form col-sm-2" id="sign-in">
+      <fieldset>
+      <legend>Sign in:</legend>
+<input name ="credentials[email]" class="form-control" type="text" autocomplete="username" placeholder="name@example.com">
+<input name ="credentials[password]" class="form-control" type="password" autocomplete="current-password" placeholder="password">
+<input type="submit" value="Sign in">
+
+      </fieldset>
+    </form>
+
+          <form class="pwchange-form secondView col-sm-2" id="change-password">
+            <fieldset>
+            <legend>Password Change:</legend>
+    <input name ="passwords[old]" class="form-control" type="password" autocomplete="current-password" placeholder="current password">
+    <input name ="passwords[new]" class="form-control" type="password" autocomplete="new-password" placeholder="new password">
+    <input type="submit" value="Change password">
+    <button id="pwchange-cancel">Cancel</button>
+            </fieldset>
+          </form>
+
+      <main class="secondView">
+        <!-- <div class="search-bar">
+          <input class="search-text" type="text" name="search" placeholder="Enter SEARCH destination">
+          <a class="search-btn" href="#"></a>
+          <i class="fas fa-search"></i>
+        </div> -->
+
+          <section class="add-show" id="nav2">
+          <input type="submit" id="listing-button" value="Destination List">
+          <button id="showCreate">Add Destination</button>
+          </section>
+
+         <form class="create col-sm-3" id="createNew">
+         <fieldset>
+           <legend>Create Destination:</legend>
+            <label for="Destination">Destination</label>
+              <input class="form-control" type="text" id="name" value ="" placeholder="Enter destination">
+            <label for="City">City</label>
+              <input class="form-control" type="text" id="city" value="" placeholder="Enter city">
+            <label for="State">State</label>
+              <input class="form-control" type="text" id="state" value="" placeholder="Enter state">
+            <!-- <button class="btn">Create</button> -->
+              <input type="submit" id="create-btn" value="Create">
+            </fieldset>
+         </form>
+
+         <div><h4 id="message"></h4></div>
+
+         <form class="col-sm-3" id="edit-form">
+        </form>
+
+        <div id="list"></div>
+         <!-- <form class="delete">
+         </form> -->
+
+      </main>
+      <footer>
+        <p> by 7 ~^^~</p>
+      </footer>
+    </body>
+</html>
